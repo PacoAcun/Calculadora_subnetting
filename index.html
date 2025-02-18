@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Subredes</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container main-container">
+        <div class="header">
+            <span id="public-ip">Mi IP: Cargando...</span>
+            <h1>Calculadora de Subredes</h1>
+            <button id="theme-toggle" class="btn btn-dark-mode" onclick="modoOscuro()">🌙</button>
+        </div>
+
+        <div class="section-container">
+            <div class="form-group">
+                <label for="network">Dirección de Red (ejemplo. 192.168.1.0/24)</label>
+                <input type="text" class="form-control" id="network" placeholder="Ingrese la dirección de red" oninput="desplegarSubnets()">
+                <div id="subnet-error" class="text-danger"></div>
+            </div>
+            <div class="form-group">
+                <label for="subnets">Número de Subredes</label>
+                <select class="form-control" id="subnets">
+                    <option value="">Seleccione una opción</option>
+                </select>
+            </div>
+            <button class="btn btn-calculate" onclick="calcularSubnets()">Calcular Subredes</button>
+            <table class="table table-bordered mt-4">
+                <thead>
+                    <tr>
+                        <th>Subred</th>
+                        <th>Dirección de Red</th>
+                        <th>Broadcast</th>
+                        <th>Máscara de Subred</th>
+                    </tr>
+                </thead>
+                <tbody id="resultados">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="converter-container">
+            <div class="converter">
+                <h3>Binario a Decimal/Hexadecimal</h3>
+                <div class="form-group">
+                    <label for="binary-input" id="bit-counter">Número Binario</label>
+                    <input type="text" class="form-control" id="binary-input" oninput="validarBits(event)" placeholder="Ingrese solo bits">
+                    
+                </div>
+                <button class="btn btn-secondary" onclick="convertirBinario()">Convertir</button>
+                <table class="table table-bordered mt-3">
+                    <thead>
+                        <tr>
+                            <th>Decimal</th>
+                            <th>Hexadecimal</th>
+                        </tr>
+                    </thead>
+                    <tbody id="binario-a-decimal"></tbody>
+                </table>
+            </div>
+
+            <div class="converter">
+                <h3>Decimal a Binario/Hexadecimal</h3>
+                <div class="form-group">
+                    <label for="decimal-input">Número Decimal</label>
+                    <input type="number" class="form-control" id="decimal-input" placeholder="Ingrese un número decimal">
+                </div>
+                <button class="btn btn-secondary" onclick="convertirDecimal()">Convertir</button>
+                <table class="table table-bordered mt-3">
+                    <thead>
+                        <tr>
+                            <th>Binario</th>
+                            <th>Hexadecimal</th>
+                        </tr>
+                    </thead>
+                    <tbody id="decimal-a-binario"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

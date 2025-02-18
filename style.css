@@ -1,0 +1,283 @@
+:root {
+    --primary-color: #3256b1; /* Azul grisáceo oscuro */
+    --accent-color: #142c4b; /* Azul oscuro */
+    --background-color: #f0f2f5; /* Gris claro */
+    --dark-bg-color: #121212; /* Fondo oscuro */
+    --dark-text-color: #ffffff; /* Texto blanco */
+    --light-text-color: #000000; /* Texto negro */
+    --transition-speed: 0.3s;
+    --font-family: 'Roboto', sans-serif;
+}
+
+/* Importación de la fuente */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Estilos generales */
+body {
+    background-color: var(--background-color);
+    color: var(--light-text-color);
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+body.dark-mode {
+    background-color: var(--dark-bg-color);
+    color: var(--dark-text-color);
+}
+
+.main-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow var(--transition-speed);
+}
+
+body.dark-mode .main-container {
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin: 0;
+    transition: color var(--transition-speed);
+}
+
+.header h1:hover {
+    color: var(--accent-color);
+}
+
+#public-ip {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.btn-dark-mode {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform 0.2s;
+}
+
+.btn-dark-mode:hover {
+    background-color: var(--accent-color);
+    transform: rotate(360deg);
+}
+
+body.dark-mode .header h1 {
+    color: var(--dark-text-color);
+}
+
+body.dark-mode .btn-dark-mode {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+.section-container {
+    background-color: var(--background-color);
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s forwards;
+    animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body.dark-mode .section-container {
+    background-color: #2a2a2a;
+}
+
+.btn-calculate {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    margin-top: 15px;
+    padding: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.btn-calculate:hover {
+    background-color: var(--primary-color);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+body.dark-mode .btn-calculate {
+    background-color: var(--accent-color);
+    color: var(--dark-text-color);
+}
+
+body.dark-mode .btn-calculate:hover {
+    background-color: var(--primary-color);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 0.95rem;
+}
+
+.table th {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+body.dark-mode .table th {
+    background-color: var(--accent-color);
+    color: var(--dark-text-color);
+}
+
+body.dark-mode .table tr:nth-child(even) {
+    background-color: #3a3a3a;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 9px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(0, 74, 135, 0.5);
+    outline: none;
+}
+
+.converter-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilo para la tabla de resultados */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.7s forwards;
+    animation-delay: 0.6s;
+}
+
+.table th, .table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #dddddd;
+    font-size: 0.95rem;
+}
+
+.table th {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    .btn-dark-mode {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .section-container {
+        padding: 20px;
+    }
+
+    .btn-calculate, .btn-secondary {
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    .table th, .table td {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+}
